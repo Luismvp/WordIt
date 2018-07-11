@@ -15,6 +15,6 @@ Using this app you will be able to:
 
 If you want to change the format there is an in-code way to alter the font, the size of the images, their position, the size of the font, and also include more elements on the document, as long as you know how to program it.
 
-This project uses the phpWord library and it gives you a way of writting documents that contain almost always the same, but with small changes in a short time. It will enhance your eficiency, and make a normally complicated and boring task something easier.
+This project uses the phpWord library and it gives you a way of writting documents that contain almost always the same, but with small changes in a short time. The paragraphs you tend to repeat will be saved and grouped in categories and ready to be reused in the next document you write.It will enhance your eficiency, and make a normally complicated and boring task something easier.
 
 I encourage everyone who wants to make document building apps to keep on working in this code because the possibilities are huge.
