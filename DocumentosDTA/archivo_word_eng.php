@@ -1,5 +1,5 @@
 <?php
-  require_once 'conecta.php';
+  require_once 'connect.php';
   require_once dirname(__FILE__).'/PHPWord-master/src/PhpWord/Autoloader.php';
   \PhpOffice\PhpWord\Autoloader::register();
 

@@ -1,5 +1,5 @@
 <?php
-  require_once 'conecta.php';
+  require_once 'connect.php';
   $parrafos=explode(',', $_POST['parrafos']);
   $parrafosConFoto= array();
   $parrafosConFotoFinal="";
@@ -53,18 +53,18 @@
       </style>
    </head>
    <body>  
-     <nav style="text-align: center;">
+    <nav style="text-align: center;">
 
-      <a href="InicioEsp.php">Inicio</a>
+      <a href="InicioEng.php">Home</a>
 
-      <a href="categorias.php">Escribir categorías</a>
+      <a href="categorias_eng.php">Write new category</a>
 
-      <a href="tags.php">Escribir tags</a>
+      <a href="tags_eng.php">Write new tags</a>
 
-      <a href="parrafos.php">Escribir párrafo</a>
-    </nav><!-- /.container -->
-      <form enctype="multipart/form-data" action="archivo_word.php" method="post">
-        <h4>Estos son los párrafos en los que quieres insertar una foto:</h4>
+      <a href="parrafos_eng.php">Write new paragraph</a>
+    </nav>
+      <form enctype="multipart/form-data" action="archivo_word_eng.php" method="post">
+        <h4>This are the paragraph you want to include an image in:</h4>
         <?php
           foreach ($parrafosConFoto as $parra) {
             $sql= "SELECT id,texto,categoria FROM parrafos WHERE id=".$parra;
@@ -72,19 +72,19 @@
 
               echo "<h4>".$parr['categoria']."</h4>";
               echo "<p>".nl2br($parr['texto'])."</p>";
-              echo "<label for='".$parr['id']."'>¿Donde quieres la foto?</label>";
-              echo "<label><input required class='with-gap' type='radio' name='".$parr['id']."' value='si'><span>Al principio</span></label>";
-              echo "<label><input required class='with-gap' type='radio' name='".$parr['id']."' value='no'><span>Al final</span></label>";
+              echo "<label for='".$parr['id']."'>¿Where do you want the picture?</label>";
+              echo "<label><input required class='with-gap' type='radio' name='".$parr['id']."' value='si'><span>At the beggining of the paragraph</span></label>";
+              echo "<label><input required class='with-gap' type='radio' name='".$parr['id']."' value='no'><span>At the end of the paragraph</span></label>";
               echo "<br><br><input required type='file' name='foto".$parr['id']."'>";
             }
           }
           echo "<br><input hidden name='parrafosFinales' value='".$_POST['parrafos']."'>";
           echo "<br><input hidden name='parrafosConFotoFinal' value='".$parrafosConFotoFinal."'>";
         ?>
-        <label for="nombre">¿Cómo quieres llamar al documento?</label><br>
+        <label for="nombre">¿How do you want to name the document?</label><br>
         <input type="text" name="nombre" required style="max-width:50%">
         <br>
-      <button type="submit" class="btn">Generar documento</button>
+      <button type="submit" class="btn">Generate document</button>
       </form>
       <br>
       <br>

@@ -9,6 +9,9 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style>
+      body{
+        text-align: center;
+      }
     	a{
     		color:white;
     		padding-left: 5%;
@@ -19,6 +22,7 @@
     	}
     	nav{
     		text-align: center;
+        background-color: navy;
     	}
     	.content{
     		text-align: center;
@@ -27,25 +31,14 @@
   </head>
 
   <body>
-  	<nav style="text-align: center;">
-
-  		<a href="categorias.php">Escribir categorías</a>
-
-  		<a href="tags.php">Escribir tags</a>
-
-      <a href="asignatags1.php">Asignar tags a párrafos</a>
-
-  		<a href="parrafos.php">Escribir párrafos</a>
-  	</nav><!-- /.container -->
-		<div class="content"style="text-align: center;">
-			<h4>Ver todas las tablas de la base de datos</h4>
-			<button class="btn"><a href="lista.php">Ver</a></button>
-      <form action="seleccion.php" method="post">
-      <h4>Escribir 
-      oferta en word</h4>
-      <input type="text" hidden name="parrafosHastaAhora" value="0">
-      <input type="text" hidden name="parrafo" value="0">
-      <button type="submit" class="btn">Empezar</button>
+      <h2>Elige el idioma en el que vas a escribir tu documento, o los párrafos que vayas a incluir en la base de datos</h2>
+      <form action="InicioEsp.php" method="post">
+      <h4>Español</h4>
+      <button type="submit" class="btn">ir</button>
+      </form>
+      <form action="InicioEng.php" method="post">
+      <h4>Inglés</h4>
+      <button type="submit" class="btn">Go</button>
       </form>
 		</div>
     <!--JavaScript at end of body for optimized loading-->

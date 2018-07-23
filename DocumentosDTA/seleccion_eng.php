@@ -1,5 +1,15 @@
 <?php
-   require_once 'conecta.php';
+   require_once 'connect.php';
+      $parrafos = $_POST['parrafosHastaAhora'];
+      $parrafosPagina2 = $_POST['parrafo']; 
+      if($parrafos==="0"){
+         $parrafos=$parrafosPagina2;
+      }else{
+         $parrafos= $parrafos.','.$parrafosPagina2;
+      }
+      echo $parrafos;
+
+
 ?>
 <html>
    <head>
@@ -42,25 +52,25 @@
    </head>
    
    <body>  
-     <nav style="text-align: center;">
+    <nav style="text-align: center;">
 
-      <a href="InicioEsp.php">Inicio</a>
+      <a href="InicioEng.php">Home</a>
 
-      <a href="categorias.php">Escribir categorías</a>
+      <a href="categorias_eng.php">Write new category</a>
 
-      <a href="tags.php">Escribir tags</a>
+      <a href="tags_eng.php">Write new tags</a>
 
-      <a href="parrafos.php">Escribir párrafo</a>
-    </nav><!-- /.container --> 
+      <a href="parrafos_eng.php">Write new paragraph</a>
+    </nav>
       <div class = "row">
-         <h4>Encuentra el párrafo que buscas filtrando a través de las categorías</h4>
-         <form class = "col s12" action="asignatags2.php" method="post">
+         <h4>Find the paragraph you´re looking for using the tags and categories as filters:</h4>
+         <form class = "col s12" action="seleccion_parrafos_eng.php" method="post">
             <div class = "row">
-            <label>Selección de categoria</label>
-               <select name="categoria" required>
-                  <option value = "" disabled selected>Selecciona la categoría a la que pertenece el párrafo:</option>
+            <label>Select a category</label>
+               <select required name="categoria">
+                  <option value = "" disabled selected>Select the category the paragraph belongs to:</option>
                   <?php
-                     require_once 'conecta.php';
+                     require_once 'connect.php';
                      $sql = "SELECT id, categoria FROM categorias";
                      foreach($db->query($sql) as $categoria){
                         echo '<option value="'.$categoria['categoria'].'">'.$categoria['categoria'].'</option>';
@@ -70,9 +80,16 @@
             </div>
             
             <div class = "row">
-               <button type="submit" class="btn">Elegir</button>
+               <input type="text" hidden name="parrafosHastaAhora2" value=<?php if("0"!==$parrafos){echo '"'.$parrafos.'"';}else{echo '0';}?>>
+              <?php echo '<input type="text" hidden name="parrafo" value="'.$parrafosPagina2.'">';?> 
+               <button type="submit" class="btn">Choose</button>             
             </div>   
          </form>       
       </div>
+      <?php
+         if($parrafos!=="0"){
+            echo '<form action="estructura_documento_eng.php" method="post"><input name="parrafos_finales" value="'.$parrafos.'" hidden type="text"><button type="submit" class="btn">Choose documents structure</button></form>';
+         }
+      ?>
    </body>   
 </html>

@@ -1,5 +1,15 @@
 <?php
    require_once 'conecta.php';
+      $parrafos = $_POST['parrafosHastaAhora'];
+      $parrafosPagina2 = $_POST['parrafo']; 
+      if($parrafos==="0"){
+         $parrafos=$parrafosPagina2;
+      }else{
+         $parrafos= $parrafos.','.$parrafosPagina2;
+      }
+      echo $parrafos;
+
+
 ?>
 <html>
    <head>
@@ -50,14 +60,16 @@
 
       <a href="tags.php">Escribir tags</a>
 
+      <a href="asignatags1.php">Asignar tag a parrafo</a>
+
       <a href="parrafos.php">Escribir párrafo</a>
     </nav><!-- /.container --> 
       <div class = "row">
          <h4>Encuentra el párrafo que buscas filtrando a través de las categorías</h4>
-         <form class = "col s12" action="asignatags2.php" method="post">
+         <form class = "col s12" action="seleccion_borrar2.php" method="post">
             <div class = "row">
             <label>Selección de categoria</label>
-               <select name="categoria" required>
+               <select required name="categoria">
                   <option value = "" disabled selected>Selecciona la categoría a la que pertenece el párrafo:</option>
                   <?php
                      require_once 'conecta.php';
@@ -68,9 +80,8 @@
                   ?>
                </select>               
             </div>
-            
             <div class = "row">
-               <button type="submit" class="btn">Elegir</button>
+              <button type="submit" class="btn">Elegir</button>             
             </div>   
          </form>       
       </div>

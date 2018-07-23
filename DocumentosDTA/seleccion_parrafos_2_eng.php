@@ -1,5 +1,5 @@
 <?php
-  require_once 'conecta.php';
+  require_once 'connect.php';
   $category = $_POST['categoria'];
   $tags = $_POST['tags'];
   $parrafosHastaAhora=$_POST['parrafosHastaAhora2'];
@@ -88,19 +88,19 @@
       </style>
    </head>
    <body>  
-     <nav style="text-align: center;">
+    <nav style="text-align: center;">
 
-      <a href="InicioEsp.php">Inicio</a>
+      <a href="InicioEng.php">Home</a>
 
-      <a href="categorias.php">Escribir categorías</a>
+      <a href="categorias_eng.php">Write new category</a>
 
-      <a href="tags.php">Escribir tags</a>
+      <a href="tags_eng.php">Write new tags</a>
 
-      <a href="parrafos.php">Escribir párrafo</a>
-    </nav><!-- /.container -->
+      <a href="parrafos_eng.php">Write new paragraph</a>
+    </nav>
       <div class = "row">
-         <form class = "col s12" action="seleccion.php" method="post">
-          <h4>Selecciona el párrafo que quieres elegir para esta categoría</h4>
+         <form class = "col s12" action="seleccion_eng.php" method="post">
+          <h4>Select the paragraph you want to choose:</h4>
           <?php
             foreach ($parrafos as $parr) {
                 echo'<p>'.nl2br($parr[0]).'</p>';
@@ -108,10 +108,10 @@
             }
           ?>   
           <input hidden name="parrafosHastaAhora" value=<?php echo '"'.$parrafosHastaAhora.'"'?>>
-          <button type="submit" class="btn">Siguiente párrafo</button>       
+          <button type="submit" class="btn">Next paragraph</button>       
          </form> 
 
-         <button class="btn" style="min-height:100px"><a href="InicioEsp.php">Volver al principio</a></button>    
+         <button class="btn" style="min-height:100px"><a href="InicioEng.php">Beggin again</a></button>    
       </div>
       <script type = "text/javascript"
          src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           

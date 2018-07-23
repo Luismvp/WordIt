@@ -32,35 +32,35 @@
     </head>
 
     <body>
-      <nav style="text-align: center;">
+    <nav style="text-align: center;">
 
-      <a href="InicioEsp.php">Inicio</a>
+      <a href="InicioEng.php">Home</a>
 
-      <a href="categorias.php">Escribir categorías</a>
+      <a href="categorias_eng.php">Write new category</a>
 
-      <a href="tags.php">Escribir tags</a>
+      <a href="tags_eng.php">Write new tags</a>
 
-      <a href="parrafos.php">Escribir párrafos</a>
-    </nav><!-- /.container -->
-      <h3 style="text-align:center">En esta página puedes escribir nuevos párrafos</h3>
+      <a href="parrafos_eng.php">Write new paragraph</a>
+    </nav>
+      <h3 style="text-align:center">In this page you will be able to write new paragraphs</h3>
       <div class="container" style="margin-top: 40px;margin-bottom: 100px">
-        <form action="inserta_parrafo.php" method="post">
+        <form action="inserta_parrafo_eng.php" method="post">
             <fieldset>
-                <label for="categoria">¿A qué categoría pertenece este párrafo?</label>
+                <label for="categoria">¿Which category does this paragraph belong to?</label>
                 <br>
                   <?php
-                    require_once 'conecta.php';
+                    require_once 'connect.php';
                     $sql = "SELECT id, categoria FROM categorias";
                     foreach($db->query($sql) as $categoria){
                     echo'<label><input required class="with-gap" type="radio" name="categoria" value="'.$categoria['categoria'].'"><span>'.$categoria['categoria'].'</span></label>';
                     }
                   ?>
                 <br>
-                <label for="parrafo">Escribe tu párrafo aquí:
+                <label for="parrafo">Write your paragraph in here:
                 <textarea required name="parrafo" id="parrafo" style="min-height:300px"></textarea>
                 </label>
             </fieldset>
-                <button type="submit" class="btn">Enviar</button>
+                <button type="submit" class="btn">Send</button>
         </form>
       </div>
       <!--JavaScript at end of body for optimized loading-->

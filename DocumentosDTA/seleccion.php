@@ -43,6 +43,7 @@
       }
       nav{
         text-align: center;
+        background-color: navy;
       }
       .content{
         text-align: center;
@@ -53,7 +54,7 @@
    <body>  
      <nav style="text-align: center;">
 
-      <a href="index.php">Inicio</a>
+      <a href="InicioEsp.php">Inicio</a>
 
       <a href="categorias.php">Escribir categorías</a>
 

@@ -1,5 +1,5 @@
 <?php
-  require_once 'conecta.php';
+  require_once 'connect.php';
   $cat = $_POST["categoria"];
   $parrafo = $_POST['parrafo'];
   $sql = "SELECT id ,texto, categoria FROM parrafos";
@@ -46,20 +46,20 @@
   </head>
 
   <body>
-     <nav style="text-align: center;">
+    <nav style="text-align: center;">
 
-      <a href="InicioEsp.php">Inicio</a>
+      <a href="InicioEng.php">Home</a>
 
-      <a href="categorias.php">Escribir categorías</a>
+      <a href="categorias_eng.php">Write new category</a>
 
-      <a href="tags.php">Escribir tags</a>
+      <a href="tags_eng.php">Write new tags</a>
 
-      <a href="parrafos.php">Escribir párrafo</a>
-    </nav><!-- /.container -->
-    <h3>Tu párrafo ha sido incluido en la base de datos</h3>
-    <h4>Elige ahora algún tag para el párrafo en cuestión, si así lo deseas</h4>
+      <a href="parrafos_eng.php">Write new paragraph</a>
+    </nav>
+    <h3>The paragraph has been included in the database.</h3>
+    <h4>Choose now a tag to assign it to your paragraph if needed</h4>
 
-    <form action="inserta_parrafo_2.php" method="post">
+    <form action="inserta_parrafo_2_eng.php" method="post">
       <input type="number" name="idparrafo" hidden value=<?php echo "'".$num."'"?>>
       <?php
                     $sql = "SELECT id, tag, category FROM tags WHERE category='".$cat."'";
@@ -67,10 +67,10 @@
                     echo'<label><input class="filled-in" type="checkbox" name="checkbox'.$tag['id'].'"><span>'.$tag['tag'].' </span></label>';
                     }
                   ?>
-      <button type="submit" class="btn">enviar</button>
+      <button type="submit" class="btn">send</button>
     </form>
 
-    <button class="btn"><a href="InicioEsp.php">Inicio</a></button>
+    <button class="btn"><a href="InicioEng.php">Home</a></button>
     <script type="text/javascript" src="js/materialize.min.js"></script>
   </body>
 </html>

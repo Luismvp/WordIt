@@ -31,36 +31,36 @@
     </head>
 
     <body>
-      <nav style="text-align: center;">
+    <nav style="text-align: center;">
 
-      <a href="InicioEsp.php">Inicio</a>
+      <a href="InicioEng.php">Home</a>
 
-      <a href="categorias.php">Escribir categorías</a>
+      <a href="categorias_eng.php">Write new category</a>
 
-      <a href="tags.php">Escribir tags</a>
+      <a href="tags_eng.php">Write new tags</a>
 
-      <a href="parrafos.php">Escribir párrafo</a>
+      <a href="parrafos_eng.php">Write new paragraph</a>
     </nav>
-<h3>En esta página puedes escribir nuevos tags para tus párrafos</h3>
+<h3>In this page you will be able to write new tags for your paragraphs</h3>
 <div class="container" style="margin-top: 40px;margin-bottom: 100px">
-  <form action="inserta_tag.php" method="post">
+  <form action="inserta_tag_eng.php" method="post">
       <fieldset>
-        <label for="categoria">¿A qué categoría pertenece este tag?</label>
+        <label for="categoria">¿Which category does is tag belong to?</label>
         <br>
         <?php
-          require_once 'conecta.php';
+          require_once 'connect.php';
           $sql = "SELECT id, categoria FROM categorias";
           foreach($db->query($sql) as $categoria){
             echo'<label><input required class="with-gap" type="radio" name="categoria" value="'.$categoria['categoria'].'"><span>'.$categoria['categoria'].'</span></label>';
           }
         ?>
         <br>
-        <label for="tag">¿Qué nombre le quieres dar a este tag de párrafo?</label>
+        <label for="tag">¿How do you want to name this tag?</label>
         <br>
         <input required type="text" name="tag" id="tag" placeholder="Ej: Carreton Eléctrico">
         <br>
       </fieldset>
-          <button type="submit" class="btn">Enviar</button>
+          <button type="submit" class="btn">Send</button>
   </form>
 </div>
       <!--JavaScript at end of body for optimized loading-->

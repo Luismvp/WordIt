@@ -1,6 +1,11 @@
 <?php
   require_once 'conecta.php';
-  $parrafos=explode(',', $_POST['parrafos_finales']);
+  $category = $_POST['categoria'];
+  $sql2 = "SELECT id,texto, categoria FROM parrafos WHERE categoria='".$category."'";
+    $parrafos=array();
+  foreach($db->query($sql2) as $fila){
+    $parrafos[]=$fila;
+  }
 ?>
 <html>
    <head>
@@ -41,7 +46,7 @@
       </style>
    </head>
    <body>  
-     <nav style="text-align: center;">
+   <nav style="text-align: center;">
 
       <a href="InicioEsp.php">Inicio</a>
 
@@ -49,24 +54,23 @@
 
       <a href="tags.php">Escribir tags</a>
 
+      <a href="asignatags1.php">Asignar tag a parrafo</a>
+
       <a href="parrafos.php">Escribir párrafo</a>
     </nav><!-- /.container -->
-      <form action="cargar_fotos.php" method="post">
-        <?php
-          foreach ($parrafos as $parra) {
-            $sql= "SELECT id,texto,categoria FROM parrafos WHERE id=".$parra;
-            foreach($db->query($sql) as $parr){
-              echo "<h4>".$parr['categoria']."</h4>";
-              echo "<p>".nl2br($parr['texto'])."</p>";
-              echo "<label for='".$parr['id']."'>¿Quieres incluir una foto en este párrafo?</label>";
-              echo "<label><input required class='with-gap' type='radio' name='".$parr['id']."' value='si'><span>si</span></label>";
-              echo "<label><input required class='with-gap' type='radio' name='".$parr['id']."' value='no'><span>no</span></label>";
+      <div class = "row">
+         <form class = "col s12" action="seleccion_borrar3.php" method="post">
+          <h4>Selecciona el párrafo que quieres borrar</h4>
+          <?php
+            foreach ($parrafos as $parr) {
+                echo'<p>'.nl2br($parr['texto']).'</p>';
+                echo'<p><label><input required class="with-gap" type="radio" name="parrafo" value="'.$parr['id'].'"/><span>Seleccionar este párrafo</span></label></p>';
             }
-          }
-          echo "<br><input hidden name='parrafos' value='".$_POST['parrafos_finales']."'>"
-        ?>
-        <button type="submit" class="btn">Seguir</button>
-      </form>
+          ?> 
+          <input hidden type="text" value=<?php echo '"'.$category.'"'?> name="categoria">  
+          <button type="submit" class="btn">Borrar</button>       
+         </form>    
+      </div>
       <script type = "text/javascript"
          src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
       <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">

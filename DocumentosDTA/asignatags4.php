@@ -44,6 +44,7 @@
       }
       nav{
         text-align: center;
+        background-color: navy;
       }
       .content{
         text-align: center;
@@ -54,7 +55,7 @@
   <body>
      <nav style="text-align: center;">
 
-      <a href="index.php">Inicio</a>
+      <a href="InicioEsp.php">Inicio</a>
 
       <a href="categorias.php">Escribir categorías</a>
 
@@ -64,7 +65,7 @@
     </nav><!-- /.container -->
     <h3>Se le han asignado los tags al párrafo</h3>
 
-    <button class="btn"><a href="index.php">Inicio</a></button>
+    <button class="btn"><a href="InicioEsp.php">Inicio</a></button>
     <script type="text/javascript" src="js/materialize.min.js"></script>
   </body>
 </html>

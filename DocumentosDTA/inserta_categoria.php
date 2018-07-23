@@ -37,6 +37,7 @@
       }
       nav{
         text-align: center;
+        background-color: navy;
       }
       .content{
         text-align: center;
@@ -47,7 +48,7 @@
   <body>
     <nav style="text-align: center;">
 
-      <a href="index.php">Inicio</a>
+      <a href="InicioEsp.php">Inicio</a>
 
       <a href="categorias.php">Escribir categorías</a>
 
@@ -56,7 +57,7 @@
       <a href="parrafos.php">Escribir párrafo</a>
     </nav>
     <h3>Tu categoría ha sido incluido en la base de datos</h3>
-    <button class="btn"><a href="index.php">Volver a inicio</a></button>
+    <button class="btn"><a href="InicioEsp.php">Volver a inicio</a></button>
     <script type="text/javascript" src="js/materialize.min.js"></script>
   </body>
 </html>

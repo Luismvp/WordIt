@@ -33,26 +33,26 @@
     <body>
        <nav style="text-align: center;">
 
-      <a href="InicioEsp.php">Inicio</a>
+      <a href="InicioEng.php">Home</a>
 
-      <a href="categorias.php">Escribir categorías</a>
+      <a href="categorias_eng.php">Write new category</a>
 
-      <a href="tags.php">Escribir tags</a>
+      <a href="tags_eng.php">Write new tags</a>
 
-      <a href="parrafos.php">Escribir párrafo</a>
+      <a href="parrafos_eng.php">Write new paragraph</a>
     </nav>
-<h3>En esta página puedes escribir nuevas categorías</h3>
-<div class="container" style="margin-top: 40px;margin-bottom: 100px">
-  <form action="inserta_categoria.php" method="post">
-      <fieldset>
-          <label for="categoria">¿Qué nombre le quieres dar a esta categoría de párrafo?</label>
-          <br>
-          <input required type="text" name="categoria" id="categoria" placeholder="Ej: Bastidores">
-          <br>
-      </fieldset>
-          <button type="submit" class="btn">Enviar</button>
-  </form>
-</div>
+    <h3>In this page you will be able to write new categories for the paragraphs and insert them in the database</h3>
+    <div class="container" style="margin-top: 40px;margin-bottom: 100px">
+      <form action="inserta_categoria_eng.php" method="post">
+          <fieldset>
+              <label for="categoria">¿How do you want to name this category?</label>
+              <br>
+              <input required type="text" name="categoria" id="categoria" placeholder="Ej: Bastidores">
+              <br>
+          </fieldset>
+              <button type="submit" class="btn">Send</button>
+      </form>
+    </div>
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="js/materialize.min.js"></script>
     </body>

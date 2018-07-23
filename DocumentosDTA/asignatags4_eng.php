@@ -1,17 +1,23 @@
 <?php
-  require_once 'conecta.php';
-  $cat = $_POST["categoria"];
-  $texto = $_POST["texto"];
-  $sql = "SELECT id, texto, categoria FROM parrafos";
+  require_once 'connect.php';
+  $sql = "SELECT id,tag FROM tags";
   $num = 1;
-  foreach($db->query($sql) as $parrafo){
+  $parrafo = $_POST['idparrafo'];
+  foreach($db->query($sql) as $tag){
+    if(isset($_POST['checkbox'.$num])){
+      $sql = "SELECT idNexo,idParrafo,idTag FROM nexo_parrafo_tag";
+      $Nnexos=1;
+      foreach($db->query($sql) as $nexo){
+        $Nnexos++;
+      }
+      $sql_insert = "INSERT INTO `nexo_parrafo_tag` (`idNexo`,`idParrafo`,`idTag`) VALUES ('$Nnexos','$parrafo','$num') ";
+      try{
+        $db->query($sql_insert);
+      } catch (Exception $error){
+        die("Error al insertar la categoria en la base de datos" . $error->getMessage());
+      }
+    }
     $num++;
-  }
-  $sql_insert = "INSERT INTO `parrafos` (`id`,`texto`,`categoria`) VALUES ('$num','$texto','$cat') ";
-  try{
-      $db->query($sql_insert);
-  } catch (Exception $error){
-      die("Error al insertar el disco en la base de datos" . $error->getMessage());
   }
 ?>
 <!DOCTYPE html>
@@ -49,16 +55,17 @@
   <body>
     <nav style="text-align: center;">
 
-      <a href="index.php">Inicio</a>
+      <a href="InicioEng.php">Home</a>
 
-      <a href="categorias.php">Escribir categorías</a>
+      <a href="categorias_eng.php">Write new category</a>
 
-      <a href="tags.php">Escribir tags</a>
+      <a href="tags_eng.php">Write new tags</a>
 
-      <a href="parrafos.php">Escribir párrafo</a>
+      <a href="parrafos_eng.php">Write new paragraph</a>
     </nav>
-    <h3>Tu párrafo ha sido incluido en la base de datos</h3>
-    <button class="btn"><a href="index.php">Volver a inicio</a></button>
+    <h3>The tags have been assigned to the paragraph</h3>
+
+    <button class="btn"><a href="InicioEng.php">Home</a></button>
     <script type="text/javascript" src="js/materialize.min.js"></script>
   </body>
 </html>

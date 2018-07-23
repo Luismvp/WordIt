@@ -1,17 +1,16 @@
 <?php
-  require_once 'conecta.php';
+  require_once 'connect.php';
   $cat = $_POST["categoria"];
-  $texto = $_POST["texto"];
-  $sql = "SELECT id, texto, categoria FROM parrafos";
+  $sql = "SELECT id, categoria FROM categorias";
   $num = 1;
-  foreach($db->query($sql) as $parrafo){
+  foreach($db->query($sql) as $categoria){
     $num++;
   }
-  $sql_insert = "INSERT INTO `parrafos` (`id`,`texto`,`categoria`) VALUES ('$num','$texto','$cat') ";
+  $sql_insert = "INSERT INTO `categorias` (`id`,`categoria`) VALUES ('$num','$cat') ";
   try{
       $db->query($sql_insert);
   } catch (Exception $error){
-      die("Error al insertar el disco en la base de datos" . $error->getMessage());
+      die("Error al insertar la categoria en la base de datos" . $error->getMessage());
   }
 ?>
 <!DOCTYPE html>
@@ -47,18 +46,18 @@
   </head>
 
   <body>
-    <nav style="text-align: center;">
+   <nav style="text-align: center;">
 
-      <a href="index.php">Inicio</a>
+      <a href="InicioEng.php">Home</a>
 
-      <a href="categorias.php">Escribir categorías</a>
+      <a href="categorias_eng.php">Write new category</a>
 
-      <a href="tags.php">Escribir tags</a>
+      <a href="tags_eng.php">Write new tags</a>
 
-      <a href="parrafos.php">Escribir párrafo</a>
+      <a href="parrafos_eng.php">Write new paragraph</a>
     </nav>
-    <h3>Tu párrafo ha sido incluido en la base de datos</h3>
-    <button class="btn"><a href="index.php">Volver a inicio</a></button>
+    <h3>Your categorty has been included in the database</h3>
+    <button class="btn"><a href="InicioEng.php">Home</a></button>
     <script type="text/javascript" src="js/materialize.min.js"></script>
   </body>
 </html>

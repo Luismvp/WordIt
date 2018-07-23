@@ -1,5 +1,5 @@
 <?php
-   require_once 'conecta.php';
+   require_once 'connect.php';
 ?>
 <html>
    <head>
@@ -42,25 +42,25 @@
    </head>
    
    <body>  
-     <nav style="text-align: center;">
+    <nav style="text-align: center;">
 
-      <a href="InicioEsp.php">Inicio</a>
+      <a href="InicioEng.php">Home</a>
 
-      <a href="categorias.php">Escribir categorías</a>
+      <a href="categorias_eng.php">Write new category</a>
 
-      <a href="tags.php">Escribir tags</a>
+      <a href="tags_eng.php">Write new tags</a>
 
-      <a href="parrafos.php">Escribir párrafo</a>
-    </nav><!-- /.container --> 
+      <a href="parrafos_eng.php">Write new paragraph</a>
+    </nav>
       <div class = "row">
-         <h4>Encuentra el párrafo que buscas filtrando a través de las categorías</h4>
-         <form class = "col s12" action="asignatags2.php" method="post">
+         <h4>Find the paragraph you´re looking for filtering it by its category</h4>
+         <form class = "col s12" action="asignatags2_eng.php" method="post">
             <div class = "row">
-            <label>Selección de categoria</label>
+            <label>Category selection</label>
                <select name="categoria" required>
-                  <option value = "" disabled selected>Selecciona la categoría a la que pertenece el párrafo:</option>
+                  <option value = "" disabled selected>Select the category the paragraph belongs to:</option>
                   <?php
-                     require_once 'conecta.php';
+                     require_once 'connect.php';
                      $sql = "SELECT id, categoria FROM categorias";
                      foreach($db->query($sql) as $categoria){
                         echo '<option value="'.$categoria['categoria'].'">'.$categoria['categoria'].'</option>';
@@ -70,7 +70,7 @@
             </div>
             
             <div class = "row">
-               <button type="submit" class="btn">Elegir</button>
+               <button type="submit" class="btn">Choose</button>
             </div>   
          </form>       
       </div>

@@ -31,21 +31,21 @@
     </head>
 
     <body>
-        <nav style="text-align: center;">
+    <nav style="text-align: center;">
 
-      <a href="InicioEsp.php">Inicio</a>
+      <a href="InicioEng.php">Home</a>
 
-      <a href="categorias.php">Escribir categorías</a>
+      <a href="categorias_eng.php">Write new category</a>
 
-      <a href="tags.php">Escribir tags</a>
+      <a href="tags_eng.php">Write new tags</a>
 
-      <a href="parrafos.php">Escribir párrafo</a>
-    </nav><!-- /.container -->
+      <a href="parrafos_eng.php">Write new paragraph</a>
+    </nav>
     <?php
-	require_once 'conecta.php';
+	require_once 'connect.php';
 	$sql = "SELECT id, texto, categoria FROM parrafos";
 
-	echo "<br><hr><table><thead><th>numero</th><th>texto</th><th>categoria</th></thead>";
+	echo "<br><hr><table><thead><th>id</th><th>text</th><th>category</th></thead>";
 	foreach ($db->query($sql) as $fila) {
 		echo "<tr>";
 		echo "<td>".$fila['id']."\t"."</td>";
@@ -56,7 +56,7 @@
 	echo "</table>";
   echo "<hr><br>";
   $sql = "SELECT id,categoria FROM categorias";
-  echo "<table><thead><th>numero</th><th>categoria</th></thead>";
+  echo "<table><thead><th>id</th><th>category</th></thead>";
   foreach ($db->query($sql) as $fila) {
     echo "<tr>";
     echo "<td>".$fila['id']."\t"."</td>";
@@ -66,7 +66,7 @@
   echo "</table>";
   echo "<hr><br>";
   $sql = "SELECT id, tag FROM tags";
-  echo "<table><thead><th>numero</th><th>tag</th></thead>";
+  echo "<table><thead><th>id</th><th>tag</th></thead>";
   foreach ($db->query($sql) as $fila) {
     echo "<tr>";
     echo "<td>".$fila['id']."\t"."</td>";

@@ -1,5 +1,5 @@
 <?php
-  require_once 'conecta.php';
+  require_once 'connect.php';
   $parrafos=explode(',', $_POST['parrafos_finales']);
 ?>
 <html>
@@ -41,31 +41,31 @@
       </style>
    </head>
    <body>  
-     <nav style="text-align: center;">
+    <nav style="text-align: center;">
 
-      <a href="InicioEsp.php">Inicio</a>
+      <a href="InicioEng.php">Home</a>
 
-      <a href="categorias.php">Escribir categorías</a>
+      <a href="categorias_eng.php">Write new category</a>
 
-      <a href="tags.php">Escribir tags</a>
+      <a href="tags_eng.php">Write new tags</a>
 
-      <a href="parrafos.php">Escribir párrafo</a>
-    </nav><!-- /.container -->
-      <form action="cargar_fotos.php" method="post">
+      <a href="parrafos_eng.php">Write new paragraph</a>
+    </nav>
+      <form action="cargar_fotos_eng.php" method="post">
         <?php
           foreach ($parrafos as $parra) {
             $sql= "SELECT id,texto,categoria FROM parrafos WHERE id=".$parra;
             foreach($db->query($sql) as $parr){
               echo "<h4>".$parr['categoria']."</h4>";
               echo "<p>".nl2br($parr['texto'])."</p>";
-              echo "<label for='".$parr['id']."'>¿Quieres incluir una foto en este párrafo?</label>";
-              echo "<label><input required class='with-gap' type='radio' name='".$parr['id']."' value='si'><span>si</span></label>";
+              echo "<label for='".$parr['id']."'>¿Do you want to include an image in this paragraph?</label>";
+              echo "<label><input required class='with-gap' type='radio' name='".$parr['id']."' value='si'><span>yes</span></label>";
               echo "<label><input required class='with-gap' type='radio' name='".$parr['id']."' value='no'><span>no</span></label>";
             }
           }
           echo "<br><input hidden name='parrafos' value='".$_POST['parrafos_finales']."'>"
         ?>
-        <button type="submit" class="btn">Seguir</button>
+        <button type="submit" class="btn">Go</button>
       </form>
       <script type = "text/javascript"
          src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
